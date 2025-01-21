@@ -42,19 +42,21 @@ a:hover {
 }
 
 .Msg-window-bar {
-  background-color: #ffff62 !important;
-}
-
-.Msg-content-bar {
-  padding-top: 1em !important;
-  line-height: 2em !important;
-  font-size: 1.4em !important;
+  background-color: yellow !important;
 }
 
 .Msg-titlebar-bar {
-  background-color: #589958 !important;
+  background-color: green !important;
   color: white !important;
-  font-size: 1.25em !important;
+}
+
+#Msg-window-inner-x-foo {
+  background-color: red !important;
+  color: #ffffff !important;
+}
+
+#Msg-window-inner-x-foo:hover {
+  background-color: #a72b2b !important;
 }
 
 #Msg-content-boom {
@@ -179,4 +181,8 @@ select {
 
 .scroller {
   padding: 2em;
+}
+
+.precode {
+  text-align: left;
 }
