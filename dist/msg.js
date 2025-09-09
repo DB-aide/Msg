@@ -1,4 +1,4 @@
-/* Msg v14.2.2 https://github.com/Merkoba/Msg */
+/* Msg v14.9.0 https://github.com/Merkoba/Msg */
 
 const Msg = {}
 Msg.num_created = 0
@@ -21,6 +21,7 @@ Msg.insert = (element_1, element_2, position = `beforeend`) => {
 
 Msg.factory = (options = {}) => {
   const instance = {}
+
   instance.stack_pos_top = undefined
   instance.stack_pos_bottom = undefined
   instance.stack_pos_left = undefined
@@ -32,60 +33,111 @@ Msg.factory = (options = {}) => {
   instance.check_options = () => {
     if (instance.options.preset !== undefined) {
       if (instance.options.preset === `popup`) {
-        if (instance.options.class === undefined)
+        if (instance.options.class === undefined) {
           instance.options.class = `green`
-        if (instance.options.enable_overlay === undefined)
+        }
+
+        if (instance.options.enable_overlay === undefined) {
           instance.options.enable_overlay = false
-        if (instance.options.position === undefined)
+        }
+
+        if (instance.options.position === undefined) {
           instance.options.position = `bottomright`
-        if (instance.options.remove_after_close === undefined)
+        }
+
+        if (instance.options.remove_after_close === undefined) {
           instance.options.remove_after_close = true
-        if (instance.options.zStack_level === undefined)
+        }
+
+        if (instance.options.zStack_level === undefined) {
           instance.options.zStack_level = 1
-        if (instance.options.window_width === undefined)
+        }
+
+        if (instance.options.window_width === undefined) {
           instance.options.window_width = `460px`
-        if (instance.options.lock === undefined) instance.options.lock = false
+        }
+
+        if (instance.options.lock === undefined) {
+          instance.options.lock = false
+        }
       }
       else if (instance.options.preset === `popup_autoclose`) {
-        if (instance.options.class === undefined)
+        if (instance.options.class === undefined) {
           instance.options.class = `green`
-        if (instance.options.enable_overlay === undefined)
+        }
+
+        if (instance.options.enable_overlay === undefined) {
           instance.options.enable_overlay = false
-        if (instance.options.position === undefined)
+        }
+
+        if (instance.options.position === undefined) {
           instance.options.position = `bottomright`
-        if (instance.options.autoclose === undefined)
+        }
+
+        if (instance.options.autoclose === undefined) {
           instance.options.autoclose = true
-        if (instance.options.enable_progressbar === undefined)
+        }
+
+        if (instance.options.enable_progressbar === undefined) {
           instance.options.enable_progressbar = true
-        if (instance.options.remove_after_close === undefined)
+        }
+
+        if (instance.options.remove_after_close === undefined) {
           instance.options.remove_after_close = true
-        if (instance.options.zStack_level === undefined)
+        }
+
+        if (instance.options.zStack_level === undefined) {
           instance.options.zStack_level = 1
-        if (instance.options.window_width === undefined)
+        }
+
+        if (instance.options.window_width === undefined) {
           instance.options.window_width = `460px`
-        if (instance.options.lock === undefined) instance.options.lock = false
+        }
+
+        if (instance.options.lock === undefined) {
+          instance.options.lock = false
+        }
       }
       else if (instance.options.preset === `window`) {
-        if (instance.options.window_height === undefined)
+        if (instance.options.window_height === undefined) {
           instance.options.window_height = `100vh`
-        if (instance.options.window_min_height === undefined)
+        }
+
+        if (instance.options.window_min_height === undefined) {
           instance.options.window_min_height = `100vh`
-        if (instance.options.window_max_height === undefined)
+        }
+
+        if (instance.options.window_max_height === undefined) {
           instance.options.window_max_height = `100vh`
-        if (instance.options.window_width === undefined)
+        }
+
+        if (instance.options.window_width === undefined) {
           instance.options.window_width = `100vw`
-        if (instance.options.window_min_width === undefined)
+        }
+
+        if (instance.options.window_min_width === undefined) {
           instance.options.window_min_width = `100vw`
-        if (instance.options.window_max_width === undefined)
+        }
+
+        if (instance.options.window_max_width === undefined) {
           instance.options.window_max_width = `100vw`
-        if (instance.options.disable_transformations === undefined)
+        }
+
+        if (instance.options.disable_transformations === undefined) {
           instance.options.disable_transformations = true
-        if (instance.options.disable_content_padding === undefined)
+        }
+
+        if (instance.options.disable_content_padding === undefined) {
           instance.options.disable_content_padding = true
-        if (instance.options.full_content === undefined)
+        }
+
+        if (instance.options.full_content === undefined) {
           instance.options.full_content = true
-        if (instance.options.window_x === undefined)
+        }
+
+        if (instance.options.window_x === undefined) {
           instance.options.window_x = `none`
+        }
       }
     }
 
@@ -142,100 +194,104 @@ Msg.factory = (options = {}) => {
       instance.options.clear_editables = false
     }
 
+    if (instance.options.clear_editables_full === undefined) {
+      instance.options.clear_editables_full = false
+    }
+
     if (instance.options.before_show === undefined) {
-      instance.options.before_show = () => {}
+      instance.options.before_show = () => { }
     }
 
     if (instance.options.after_show === undefined) {
-      instance.options.after_show = () => {}
+      instance.options.after_show = () => { }
     }
 
     if (instance.options.before_set === undefined) {
-      instance.options.before_set = () => {}
+      instance.options.before_set = () => { }
     }
 
     if (instance.options.after_set === undefined) {
-      instance.options.after_set = () => {}
+      instance.options.after_set = () => { }
     }
 
     if (instance.options.before_set_title === undefined) {
-      instance.options.before_set_title = () => {}
+      instance.options.before_set_title = () => { }
     }
 
     if (instance.options.after_set_title === undefined) {
-      instance.options.after_set_title = () => {}
+      instance.options.after_set_title = () => { }
     }
 
     if (instance.options.before_set_progress === undefined) {
-      instance.options.before_set_progress = () => {}
+      instance.options.before_set_progress = () => { }
     }
 
     if (instance.options.after_set_progress === undefined) {
-      instance.options.after_set_progress = () => {}
+      instance.options.after_set_progress = () => { }
     }
 
     if (instance.options.before_close === undefined) {
-      instance.options.before_close = () => {}
+      instance.options.before_close = () => { }
     }
 
     if (instance.options.after_close === undefined) {
-      instance.options.after_close = () => {}
+      instance.options.after_close = () => { }
     }
 
     if (instance.options.after_last_closed === undefined) {
-      instance.options.after_last_closed = () => {}
+      instance.options.after_last_closed = () => { }
     }
 
     if (instance.options.before_toggle === undefined) {
-      instance.options.before_toggle = () => {}
+      instance.options.before_toggle = () => { }
     }
 
     if (instance.options.after_toggle === undefined) {
-      instance.options.after_toggle = () => {}
+      instance.options.after_toggle = () => { }
     }
 
     if (instance.options.before_create === undefined) {
-      instance.options.before_create = () => {}
+      instance.options.before_create = () => { }
     }
 
     if (instance.options.after_create === undefined) {
-      instance.options.after_create = () => {}
+      instance.options.after_create = () => { }
     }
 
     if (instance.options.before_destroy === undefined) {
-      instance.options.before_destroy = () => {}
+      instance.options.before_destroy = () => { }
     }
 
     if (instance.options.after_destroy === undefined) {
-      instance.options.after_destroy = () => {}
+      instance.options.after_destroy = () => { }
     }
 
     if (instance.options.on_click === undefined) {
-      instance.options.on_click = () => {}
+      instance.options.on_click = () => { }
     }
 
     if (instance.options.on_middle_click === undefined) {
-      instance.options.on_middle_click = () => {}
+      instance.options.on_middle_click = () => { }
     }
 
     if (instance.options.on_wheel_down === undefined) {
-      instance.options.on_wheel_down = () => {}
+      instance.options.on_wheel_down = () => { }
     }
 
     if (instance.options.on_wheel_up === undefined) {
-      instance.options.on_wheel_up = () => {}
+      instance.options.on_wheel_up = () => { }
     }
 
     if (instance.options.on_overlay_click === undefined) {
-      instance.options.on_overlay_click = () => {}
+      instance.options.on_overlay_click = () => { }
     }
 
     if (instance.options.on_titlebar_click === undefined) {
-      instance.options.on_titlebar_click = () => {}
+      instance.options.on_titlebar_click = () => { }
     }
 
     if (instance.options.on_x_button_click === undefined) {
-      instance.options.on_x_button_click = () => {}
+      instance.options.on_x_button_click = () => { }
     }
 
     if (instance.options.autoclose === undefined) {
@@ -510,7 +566,7 @@ Msg.factory = (options = {}) => {
     instance.topbar.style.display = `flex`
   }
 
-  instance.set_or_show = (html,) => {
+  instance.set_or_show = (html) => {
     if (instance.is_highest()) {
       instance.set(html)
     }
@@ -529,7 +585,7 @@ Msg.factory = (options = {}) => {
     let title
     let html
 
-    if (typeof content === `object` && !(content instanceof Element)) {
+    if ((typeof content === `object`) && !(content instanceof Element)) {
       title = content[0]
       html = content[1]
     }
@@ -615,36 +671,36 @@ Msg.factory = (options = {}) => {
     let styles = {}
 
     styles.container = `
-		display: none;
-		`
+    display: none;
+    `
 
     styles.overlay = `
-		position: fixed;
-		opacity: 1;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		z-index: -1000;
+    position: fixed;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1000;
     user-select: none;
-		`
+    `
 
     styles.overlay_x = `
-		cursor: pointer;
-		float: ${instance.options.overlay_x};
-		font-size: 28px;
-		font-family: sans-serif;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-		padding-left: 0.6em;
-		padding-right: 0.6em;
-		padding-top: 0.035em;
-		padding-bottom: 0.2em;
-		`
+    cursor: pointer;
+    float: ${instance.options.overlay_x};
+    font-size: 28px;
+    font-family: sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    padding-top: 0.035em;
+    padding-bottom: 0.2em;
+    `
 
     let p = instance.options.position
     let edge_x = instance.options.edge_padding_x
@@ -742,31 +798,32 @@ Msg.factory = (options = {}) => {
     }
 
     styles.window = `
-		display: flex;
-		flex-direction: column;
-		opacity: 1;
-		${win_x}
-		${win_y}
-		position: fixed;
-		width: ${instance.options.window_width};
-		height: ${instance.options.window_height};
-		min-width: ${instance.options.window_min_width};
-		min-height: ${instance.options.window_min_height};
-		max-width: ${instance.options.window_max_width};
-		max-height: ${instance.options.window_max_height};
-		${win_trans}
-		outline: 0;
-		${wun}
-		cursor: ${instance.options.window_cursor};
-		z-index: -1000;
-		`
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    ${win_x}
+    ${win_y}
+    position: fixed;
+    width: ${instance.options.window_width};
+    height: ${instance.options.window_height};
+    min-width: ${instance.options.window_min_width};
+    min-height: ${instance.options.window_min_height};
+    max-width: ${instance.options.window_max_width};
+    max-height: ${instance.options.window_max_height};
+    ${win_trans}
+    outline: 0;
+    ${wun}
+    cursor: ${instance.options.window_cursor};
+    z-index: -1000;
+    `
 
     styles.topbar = `
-		overflow: hidden;
-		flex-shrink: 0;
-		display: flex;
-		flex-direction: row;
-		`
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    `
+
     let padl = `padding-left: 0.4em;`
     let padr = `padding-right: 0.4em;`
     let justcnt = ``
@@ -775,12 +832,12 @@ Msg.factory = (options = {}) => {
       justcnt = `justify-content: center`
     }
 
-    if (instance.options.center_titlebar && instance.options.window_x === `inner_right`) {
+    if (instance.options.center_titlebar && (instance.options.window_x === `inner_right`)) {
       padl = `padding-left: 50.78px;`
       padr = `padding-right: 10.78px;`
     }
 
-    if (instance.options.center_titlebar && instance.options.window_x === `inner_left`) {
+    if (instance.options.center_titlebar && (instance.options.window_x === `inner_left`)) {
       padl = `padding-left: 10.78px;`
       padr = `padding-right: 50.78px;`
     }
@@ -789,18 +846,18 @@ Msg.factory = (options = {}) => {
     display: flex;
     align-items: center;
     ${justcnt};
-		overflow: hidden;
-		order: 2;
-		flex-grow: 1;
-		${padl}
-		${padr}
-		min-height: 27px;
-		font-size: 16px;
-		font-family: sans-serif;
+    overflow: hidden;
+    order: 2;
+    flex-grow: 1;
+    ${padl}
+    ${padr}
+    min-height: 27px;
+    font-size: 16px;
+    font-family: sans-serif;
     font-weight: bold;
     white-space: nowrap;
     cursor:${instance.options.titlebar_cursor};
-		`
+    `
 
     let ix_order, ix_margin
 
@@ -814,23 +871,23 @@ Msg.factory = (options = {}) => {
     }
 
     styles.window_inner_x = `
-		cursor: pointer;
-		margin-left: ${ix_margin};
-		font-size: 24px;
-		font-family: sans-serif;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-		overflow: hidden;
-		order: ${ix_order};
-		padding-left: 0.6em;
-		padding-right: 0.6em;
-		padding-top: 0.035em;
-		padding-bottom: 0.2em;
-		`
+    cursor: pointer;
+    margin-left: ${ix_margin};
+    font-size: 24px;
+    font-family: sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    order: ${ix_order};
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    padding-top: 0.035em;
+    padding-bottom: 0.2em;
+    `
 
     let fs, fms
 
@@ -844,24 +901,24 @@ Msg.factory = (options = {}) => {
     }
 
     styles.window_floating_x = `
-		cursor: pointer;
-		position: absolute;
-		top: 0px;
-		${fs}
-		margin-top: -10px;
-		${fms}
-		font-size: 16px;
-		font-family: sans-serif;
-		height: 22px;
-		width: 22px;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-		overflow: hidden;
-		z-index: 9999999999999999;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    ${fs}
+    margin-top: -10px;
+    ${fms}
+    font-size: 16px;
+    font-family: sans-serif;
+    height: 22px;
+    width: 22px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    z-index: 9999999999999999;
     display: block;
     box-sizing: border-box;
     border-width: 3px;
@@ -872,7 +929,7 @@ Msg.factory = (options = {}) => {
     background-color: #2B2D30;
     box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.5);
     transition: all 0.3s ease;
-		`
+    `
 
     let overflow_y = `auto`
 
@@ -881,13 +938,13 @@ Msg.factory = (options = {}) => {
     }
 
     styles.content_container = `
-		overflow-y: ${overflow_y};
-		overflow-x: hidden;
-		border: none;
-		outline: 0;
-		margin: 0;
-		flex-grow: 1;
-		`
+    overflow-y: ${overflow_y};
+    overflow-x: hidden;
+    border: none;
+    outline: 0;
+    margin: 0;
+    flex-grow: 1;
+    `
 
     let pad
 
@@ -910,23 +967,23 @@ Msg.factory = (options = {}) => {
     }
 
     styles.content = `
-		font-size: 16px;
-		text-align: center;
-		overflow-wrap: break-word;
+    font-size: 16px;
+    text-align: center;
+    overflow-wrap: break-word;
     ${pad}
-		${cwid}
-		${chgt}
-		`
+    ${cwid}
+    ${chgt}
+    `
 
     styles.progressbar_container = `
-		height: 11px;
-		width: 100%;
-		`
+    height: 11px;
+    width: 100%;
+    `
 
     styles.progressbar = `
-		height: 100%;
-		width: 0%;
-		`
+    height: 100%;
+    width: 0%;
+    `
 
     let container_class =
       instance.options.container_class !== undefined
@@ -1004,19 +1061,19 @@ Msg.factory = (options = {}) => {
     window_inner_x_class = window_inner_x_class
       .split(/\s+/)
       .map((w) =>
-        w.startsWith(`!`) ? w.substring(1) : `Msg-window-inner-x-${w}`
+        w.startsWith(`!`) ? w.substring(1) : `Msg-window-inner-x-${w}`,
       )
       .join(` `)
     window_floating_x_class = window_floating_x_class
       .split(/\s+/)
       .map((w) =>
-        w.startsWith(`!`) ? w.substring(1) : `Msg-window-floating-x-${w}`
+        w.startsWith(`!`) ? w.substring(1) : `Msg-window-floating-x-${w}`,
       )
       .join(` `)
     content_container_class = content_container_class
       .split(/\s+/)
       .map((w) =>
-        w.startsWith(`!`) ? w.substring(1) : `Msg-content-container-${w}`
+        w.startsWith(`!`) ? w.substring(1) : `Msg-content-container-${w}`,
       )
       .join(` `)
     content_class = content_class
@@ -1026,7 +1083,7 @@ Msg.factory = (options = {}) => {
     progressbar_container_class = progressbar_container_class
       .split(/\s+/)
       .map((w) =>
-        w.startsWith(`!`) ? w.substring(1) : `Msg-progressbar-container-${w}`
+        w.startsWith(`!`) ? w.substring(1) : `Msg-progressbar-container-${w}`,
       )
       .join(` `)
     progressbar_class = progressbar_class
@@ -1140,7 +1197,6 @@ Msg.factory = (options = {}) => {
         instance.close()
         e.stopPropagation()
       })
-
     }
 
     if (instance.window_floating_x !== undefined) {
@@ -1149,7 +1205,6 @@ Msg.factory = (options = {}) => {
         instance.close()
         e.stopPropagation()
       })
-
     }
 
     if (instance.overlay_x !== undefined) {
@@ -1158,7 +1213,6 @@ Msg.factory = (options = {}) => {
         instance.close()
         e.stopPropagation()
       })
-
     }
 
     instance.options.after_create(instance)
@@ -1196,12 +1250,11 @@ Msg.factory = (options = {}) => {
   }
 
   instance.is_open = () => {
-    if (!instance.created() || instance.container.style.display === `none`) {
+    if (!instance.created() || (instance.container.style.display === `none`)) {
       return false
     }
-    else {
-      return true
-    }
+
+    return true
   }
 
   instance.any_open = () => {
@@ -1497,7 +1550,7 @@ Msg.factory = (options = {}) => {
 
   instance.get_instance_by_id = (id) => {
     for (let i of Msg.instances) {
-      if (i.options.id == id) {
+      if (i.options.id.toString() === id.toString()) {
         return i
       }
     }
@@ -1857,7 +1910,7 @@ Msg.factory = (options = {}) => {
 
       let new_top, new_bottom
 
-      if (highest !== undefined && highest !== instance) {
+      if ((highest !== undefined) && (highest !== instance)) {
         if (p.includes(`top`)) {
           new_top =
             highest.stack_pos_top +
@@ -1875,15 +1928,13 @@ Msg.factory = (options = {}) => {
           instance.window.style.bottom = new_bottom + `px`
         }
       }
-      else {
-        if (p.includes(`top`)) {
-          new_top = instance.options.edge_padding_y
-          instance.window.style.top = new_top + `px`
-        }
-        else if (p.includes(`bottom`)) {
-          new_bottom = instance.options.edge_padding_y
-          instance.window.style.bottom = new_bottom + `px`
-        }
+      else if (p.includes(`top`)) {
+        new_top = instance.options.edge_padding_y
+        instance.window.style.top = new_top + `px`
+      }
+      else if (p.includes(`bottom`)) {
+        new_bottom = instance.options.edge_padding_y
+        instance.window.style.bottom = new_bottom + `px`
       }
 
       if (p.includes(`top`)) {
@@ -1900,7 +1951,7 @@ Msg.factory = (options = {}) => {
     let ins_above = instance.above_in_position(instance, `vertical`)
 
     for (let i of ins_above) {
-      if (!i.options.sideStack_collapse || i.options.sideStack !== `vertical`) {
+      if (!i.options.sideStack_collapse || (i.options.sideStack !== `vertical`)) {
         continue
       }
 
@@ -1926,15 +1977,13 @@ Msg.factory = (options = {}) => {
           i.window.style.bottom = new_bottom + `px`
         }
       }
-      else {
-        if (p.includes(`top`)) {
-          new_top = i.options.edge_padding_y
-          i.window.style.top = new_top + `px`
-        }
-        else if (p.includes(`bottom`)) {
-          new_bottom = i.options.edge_padding_y
-          i.window.style.bottom = new_bottom + `px`
-        }
+      else if (p.includes(`top`)) {
+        new_top = i.options.edge_padding_y
+        i.window.style.top = new_top + `px`
+      }
+      else if (p.includes(`bottom`)) {
+        new_bottom = i.options.edge_padding_y
+        i.window.style.bottom = new_bottom + `px`
       }
 
       if (p.includes(`top`)) {
@@ -1993,7 +2042,7 @@ Msg.factory = (options = {}) => {
       let highest = instance.highest_in_position(`horizontal`)
       let new_left, new_right
 
-      if (highest !== undefined && highest !== instance) {
+      if ((highest !== undefined) && (highest !== instance)) {
         if (p.includes(`left`)) {
           new_left =
             highest.stack_pos_left +
@@ -2011,15 +2060,13 @@ Msg.factory = (options = {}) => {
           instance.window.style.right = new_right + `px`
         }
       }
-      else {
-        if (p.includes(`left`)) {
-          new_left = instance.options.edge_padding_x
-          instance.window.style.left = new_left + `px`
-        }
-        else if (p.includes(`right`)) {
-          new_right = instance.options.edge_padding_x
-          instance.window.style.right = new_right + `px`
-        }
+      else if (p.includes(`left`)) {
+        new_left = instance.options.edge_padding_x
+        instance.window.style.left = new_left + `px`
+      }
+      else if (p.includes(`right`)) {
+        new_right = instance.options.edge_padding_x
+        instance.window.style.right = new_right + `px`
       }
 
       if (p.includes(`left`)) {
@@ -2036,7 +2083,7 @@ Msg.factory = (options = {}) => {
     let ins_above = instance.above_in_position(instance, `horizontal`)
 
     for (let i of ins_above) {
-      if (!i.options.sideStack_collapse || i.options.sideStack !== `horizontal`) {
+      if (!i.options.sideStack_collapse || (i.options.sideStack !== `horizontal`)) {
         continue
       }
 
@@ -2061,15 +2108,13 @@ Msg.factory = (options = {}) => {
           i.window.style.right = new_right + `px`
         }
       }
-      else {
-        if (p.includes(`left`)) {
-          new_left = i.options.edge_padding_x
-          i.window.style.left = new_left + `px`
-        }
-        else if (p.includes(`right`)) {
-          new_right = i.options.edge_padding_x
-          i.window.style.right = new_right + `px`
-        }
+      else if (p.includes(`left`)) {
+        new_left = i.options.edge_padding_x
+        i.window.style.left = new_left + `px`
+      }
+      else if (p.includes(`right`)) {
+        new_right = i.options.edge_padding_x
+        i.window.style.right = new_right + `px`
       }
 
       if (p.includes(`left`)) {
@@ -2121,6 +2166,14 @@ Msg.factory = (options = {}) => {
       instance.fix_vStack()
       instance.fix_hStack()
     }
+  }
+
+  instance.scroll_top = () => {
+    instance.content_container.scrollTop = 0
+  }
+
+  instance.scroll_bottom = () => {
+    instance.content_container.scrollTop = instance.content_container.scrollHeight
   }
 
   instance.set_default_positions = () => {
@@ -2200,8 +2253,10 @@ Msg.factory = (options = {}) => {
 
   instance.is_textbox = (element) => {
     let tag_name = element.tagName.toLowerCase()
-    if (tag_name === `textarea`) return true
-    if (tag_name !== `input`) return false
+    if (tag_name === `textarea`) { return true }
+
+    if (tag_name !== `input`) { return false }
+
     let type = element.getAttribute(`type`)
 
     if (!type) {
@@ -2227,66 +2282,178 @@ Msg.factory = (options = {}) => {
     return input_types.includes(type.toLowerCase())
   }
 
-  if (Msg.msg === undefined && instance.options.id !== `__internal_instance__`) {
-    Msg.msg = Msg.factory({ id: `__internal_instance__` })
+  if ((Msg.msg === undefined) && (instance.options.id !== `__internal_instance__`)) {
+    Msg.msg = Msg.factory({id: `__internal_instance__`})
     let style = document.createElement(`style`)
 
     let css = `
-		.Msg-overflow-hidden{overflow: hidden}
+    .Msg-overflow-hidden {
+      overflow: hidden;
+    }
 
-		.Msg-overlay{background-color: rgba(0, 0, 0, 0.7)}
-		.Msg-window{background-color: white;color: #222222}
-		.Msg-titlebar{background-color: #c8c8c8;color: #222222}
-		.Msg-progressbar{background-color: #c8c8c8}
-		.Msg-window-inner-x:hover{background-color: #cacaca}
-		.Msg-window-floating-x{background-color: #3a3a3a;color: white}
-		.Msg-window-floating-x:hover{background-color: #2a2a2a}
-		.Msg-overlay-x{color: white}
-		.Msg-overlay-x:hover{background-color: #686868}
+    .Msg-overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
 
-		.Msg-overlay-blue{background-color: rgba(101, 107, 124, 0.7)}
-		.Msg-window-blue{background-color: #4f84b8;color: white}
-		.Msg-titlebar-blue{background-color: #43729f;color: white}
-		.Msg-progressbar-blue{background-color: #43729f}
-		.Msg-window-inner-x-blue:hover{background-color: #476b8f}
-		.Msg-overlay-x-blue{color: white}
-		.Msg-overlay-x-blue:hover{background-color: #747484}
+    .Msg-window {
+      background-color: white;
+      color: #222222;
+    }
 
-		.Msg-overlay-red{background-color: rgba(104, 64, 64, 0.7)}
-		.Msg-window-red{background-color: #ca4e4e;color: white}
-		.Msg-titlebar-red{background-color: #af3f3f;color: white}
-		.Msg-progressbar-red{background-color: #af3f3f}
-		.Msg-window-inner-x-red:hover{background-color: #9d4d4d}
-		.Msg-overlay-x-red{color: white}
-		.Msg-overlay-x-red:hover{background-color: #805e5e}
+    .Msg-titlebar {
+      background-color: #c8c8c8;
+      color: #222222;
+    }
 
-		.Msg-overlay-green{background-color: rgba(121, 159, 133, 0.7)}
-		.Msg-window-green{background-color: #58a564;color: white}
-		.Msg-titlebar-green{background-color: #52935c;color: white}
-		.Msg-progressbar-green{background-color: #52935c}
-		.Msg-window-inner-x-green:hover{background-color: #4e8456}
-		.Msg-overlay-x-green{color: white}
-		.Msg-overlay-x-green:hover{background-color: #7c957c}
+    .Msg-progressbar {
+      background-color: #c8c8c8;
+    }
 
-		.Msg-overlay-black{background-color: rgba(121, 121, 121, 0.7)}
-		.Msg-window-black{background-color: #1D1F21;color: white}
-		.Msg-titlebar-black{background-color: #3c3c3c;color: white}
-		.Msg-progressbar-black{background-color: #3c3c3c}
-		.Msg-window-inner-x-black:hover{background-color: #424242}
-		.Msg-overlay-x-black{color: white}
-		.Msg-overlay-x-black:hover{background-color: #686868}
-		`
+    .Msg-window-inner-x:hover {
+      background-color: #cacaca !important;
+    }
+
+    .Msg-window-floating-x {
+      background-color: #3a3a3a;
+      color: white;
+    }
+
+    .Msg-window-floating-x:hover {
+      background-color: #6c6c6c !important;
+      border-color: #6c6c6c !important;
+    }
+
+    .Msg-overlay-x {
+      color: white;
+    }
+
+    .Msg-overlay-x:hover {
+      background-color: #686868 !important;
+    }
+
+    .Msg-overlay-blue {
+      background-color: rgba(101, 107, 124, 0.7);
+    }
+
+    .Msg-window-blue {
+      background-color: #4f84b8; color: white;
+    }
+
+    .Msg-titlebar-blue {
+      background-color: #43729f; color: white;
+    }
+
+    .Msg-progressbar-blue {
+      background-color: #43729f;
+    }
+
+    .Msg-window-inner-x-blue:hover {
+      background-color: #476b8f !important;
+    }
+
+    .Msg-overlay-x-blue {
+      color: white;
+    }
+
+    .Msg-overlay-x-blue:hover {
+      background-color: #747484 !important
+    }
+
+    .Msg-overlay-red {
+      background-color: rgba(104, 64, 64, 0.7);
+    }
+
+    .Msg-window-red {
+      background-color: #ca4e4e; color: white;
+    }
+
+    .Msg-titlebar-red {
+      background-color: #af3f3f; color: white;
+    }
+
+    .Msg-progressbar-red {
+      background-color: #af3f3f;
+    }
+
+    .Msg-window-inner-x-red:hover {
+      background-color: #9d4d4d !important;
+    }
+
+    .Msg-overlay-x-red {
+      color: white;
+    }
+
+    .Msg-overlay-x-red:hover {
+      background-color: #805e5e !important;
+    }
+
+    .Msg-overlay-green {
+      background-color: rgba(121, 159, 133, 0.7);
+    }
+
+    .Msg-window-green {
+      background-color: #58a564; color: white;
+    }
+
+    .Msg-titlebar-green {
+      background-color: #52935c; color: white;
+    }
+
+    .Msg-progressbar-green {
+      background-color: #52935c;
+    }
+
+    .Msg-window-inner-x-green:hover {
+      background-color: #4e8456 !important;
+    }
+
+    .Msg-overlay-x-green {
+      color: white;
+    }
+
+    .Msg-overlay-x-green:hover {
+      background-color: #7c957c !important;
+    }
+
+    .Msg-overlay-black {
+      background-color: rgba(121, 121, 121, 0.7);
+    }
+
+    .Msg-window-black {
+      background-color: #1D1F21; color: white;
+    }
+
+    .Msg-titlebar-black {
+      background-color: #3c3c3c; color: white;
+    }
+
+    .Msg-progressbar-black {
+      background-color: #3c3c3c;
+    }
+
+    .Msg-window-inner-x-black:hover {
+      background-color: #424242 !important;
+    }
+
+    .Msg-overlay-x-black {
+      color: white;
+    }
+
+    .Msg-overlay-x-black:hover{
+      background-color: #686868 !important;
+    }
+    `
 
     style.innerHTML = css
     document.head.appendChild(style)
 
     Msg.ev(document, `keydown`, (e) => {
       let highest = Msg.msg.highest_instance()
-      if (!highest) return
+      if (!highest) { return }
 
       if (e.key === `Escape`) {
         let highest = Msg.msg.highest_instance()
-        if (!highest) return
+        if (!highest) { return }
 
         if (highest.options.clear_editables) {
           let el = document.activeElement
@@ -2294,14 +2461,19 @@ Msg.factory = (options = {}) => {
           if (highest.is_textbox(el)) {
             if (!el.readOnly && !el.disabled) {
               if (el.value.trim() !== ``) {
-                let split = el.value.trimEnd().split(` `)
-                let new_value = split.slice(0, -1).join(` `) + ` `
-
-                if (new_value.trim() === ``) {
-                  new_value = ``
+                if (highest.options.clear_editables_full) {
+                  el.value = ``
                 }
+                else {
+                  let split = el.value.trimEnd().split(` `)
+                  let new_value = split.slice(0, -1).join(` `) + ` `
 
-                el.value = new_value
+                  if (new_value.trim() === ``) {
+                    new_value = ``
+                  }
+
+                  el.value = new_value
+                }
 
                 let event = new Event(`input`, {
                   bubbles: true,
@@ -2336,4 +2508,6 @@ Msg.instances = []
 try {
   module.exports = Msg
 }
-catch (e) {}
+catch (e) {
+  // Nothing
+}
